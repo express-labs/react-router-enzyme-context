@@ -1,0 +1,51 @@
+{
+  "name": "react-router-enzyme-context",
+  "version": "1.0.0",
+  "description": "A helper for mocking react router v4 context and childContextTypes when testing components with Enzyme mount() and shallow().",
+  "main": "dist/react-router-enzyme-context.cjs.js",
+  "module": "dist/react-router-enzyme-context.esm.js",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "lint": "eslint . --ext .js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/express-labs/react-router-enzyme-context.git"
+  },
+  "keywords": [
+    "react",
+    "router",
+    "mocking",
+    "mount",
+    "shallow",
+    "enzyme",
+    "context",
+    "childContextTypes"
+  ],
+  "author": "Matthew Toledo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/express-labs/react-router-enzyme-context/issues"
+  },
+  "homepage": "https://github.com/express-labs/react-router-enzyme-context#readme",
+  "dependencies": {
+    "history": "^4.7.2",
+    "prop-types": "^15.6.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.1",
+    "babel-preset-env": "^1.6.1",
+    "eslint": "^4.16.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.5.1",
+    "rollup": "^0.55.0",
+    "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-node-resolve": "^3.0.2"
+  }
+}
