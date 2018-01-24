@@ -130,7 +130,7 @@ Here is an excerpt from the Enzyme documentation:
 
 ### mount(node[, options]) => ReactWrapper
 
-####Arguments
+#### Arguments
 
 1. node (ReactElement): The node to render
 2. options (Object [optional]):
@@ -138,7 +138,7 @@ Here is an excerpt from the Enzyme documentation:
 5. options.attachTo: (DOMElement [optional]): DOM Element to attach the component to.
 6. options.childContextTypes: (Object [optional]): Merged contextTypes for all children of the wrapper.
 
-####Returns
+#### Returns
 - ReactWrapper: The wrapper instance around the rendered output.
 
 ---
