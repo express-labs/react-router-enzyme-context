@@ -3,7 +3,7 @@ A helper for mocking react router v4 context and childContextTypes when testing 
 
 This package uses React-Router's history module to mock the history.  Specifically, we use their memoryHistory module which was designed for use in testing environments.
 
-It creates a context option and a contextChildTypes option that can be used by Enzyme's mount() and shallow() API's.
+It creates a context option and a contextChildTypes option that can be used by Enzyme's mount() and shallow() API's to ensure that all descendants of the component being tested have the correct react-router context.
 
 #### Install
 
