@@ -168,3 +168,47 @@ describe('<ClickMe />', () => {
   });  
 })
 ```
+
+
+### Simulating props passed via withRouter() HOC
+
+If the component you are testing is directly wrapped by react-router's withRouter() higher order component, you may want to insert the history and location props into your component.  
+
+Currently, match is not supported.  You'll have to insert those manually.
+
+```javascript
+  import React from 'react';
+  import { withRouter } from 'react-router';
+
+  export default withRouter((props) => {
+    const location = { props };
+    return (
+      <div>
+        <h1>My Location:</h1>
+        <p>{location.pathName}</p>
+      </div>
+    )
+  });
+```
+
+```javascript
+import React from 'react';
+import { mount, configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import ReactRouterEnzymeContext from 'react-router-enzyme-context';
+
+import WhereAmI from './WhereAmI';
+
+configure({ adapter: new Adapter() });
+
+describe('<WhereAmiI />', () => {
+  it('should tell me my current location', () => {
+    const mockRouter = new ReactRouterEnzymeContext();
+    mockRouter.props().history.go('/new/location');
+    const wrapper = mount(
+      <WhereAmI {...mockRouter.props()} />
+    );
+    expect(wrapper.find('p').text()).toBe('/new/location');
+  });  
+})
+```

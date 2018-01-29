@@ -40,6 +40,14 @@ export default class ReactRouterEnzymeContext {
     return this.childContextTypes;
   }
 
+  props() {
+    return ({
+      history: this.context.history,
+      location: this.context.history.location,
+      // match: not yet supported
+    });
+  }
+
   get() {
     return ({
       context: this.context,
