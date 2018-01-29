@@ -42,8 +42,8 @@ export default class ReactRouterEnzymeContext {
 
   props() {
     return ({
-      history: this.context.history,
-      location: this.context.history.location,
+      history: this.context.router.history,
+      location: this.context.router.history.location,
       // match: not yet supported
     });
   }

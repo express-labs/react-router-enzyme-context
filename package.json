@@ -5,6 +5,7 @@
   "main": "dist/react-router-enzyme-context.cjs.js",
   "module": "dist/react-router-enzyme-context.esm.js",
   "scripts": {
+    "prepublishOnly": "npm run build",
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "lint": "eslint . --ext .js",
