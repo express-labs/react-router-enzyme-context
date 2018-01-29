@@ -1503,9 +1503,9 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var ReactRouterEzymeContext = function () {
-  function ReactRouterEzymeContext() {
-    _classCallCheck(this, ReactRouterEzymeContext);
+var ReactRouterEnzymeContext = function () {
+  function ReactRouterEnzymeContext() {
+    _classCallCheck(this, ReactRouterEnzymeContext);
 
     this.context = {
       router: {
@@ -1536,7 +1536,7 @@ var ReactRouterEzymeContext = function () {
     };
   }
 
-  _createClass(ReactRouterEzymeContext, [{
+  _createClass(ReactRouterEnzymeContext, [{
     key: 'getContext',
     value: function getContext() {
       return this.context;
@@ -1545,6 +1545,15 @@ var ReactRouterEzymeContext = function () {
     key: 'getChildContextTypes',
     value: function getChildContextTypes() {
       return this.childContextTypes;
+    }
+  }, {
+    key: 'props',
+    value: function props() {
+      return {
+        history: this.context.history,
+        location: this.context.history.location
+        // match: not yet supported
+      };
     }
   }, {
     key: 'get',
@@ -1556,7 +1565,7 @@ var ReactRouterEzymeContext = function () {
     }
   }]);
 
-  return ReactRouterEzymeContext;
+  return ReactRouterEnzymeContext;
 }();
 
-module.exports = ReactRouterEzymeContext;
+module.exports = ReactRouterEnzymeContext;
