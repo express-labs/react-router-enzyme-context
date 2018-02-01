@@ -1504,19 +1504,38 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var ReactRouterEnzymeContext = function () {
-  function ReactRouterEnzymeContext() {
+  function ReactRouterEnzymeContext(options) {
     _classCallCheck(this, ReactRouterEnzymeContext);
+
+    var defaults = {
+      initialEntries: ['/'],
+      initialIndex: 0,
+      keyLength: 6,
+      getUserConfirmation: null
+    };
 
     this.context = {
       router: {
-        history: createHistory()
+        history: createHistory(Object.assign({}, defaults, options))
       }
     };
 
+    this.context.router.route = {
+      location: this.context.router.history.location
+    };
+
     this.childContextTypes = {
+      route: propTypes.shape({
+        pathName: propTypes.string,
+        search: propTypes.string,
+        hash: propTypes.hash,
+        state: propTypes.any,
+        key: propTypes.string
+      }),
       router: propTypes.shape({
         history: propTypes.shape({
           length: propTypes.number,
+          action: propTypes.string,
           location: propTypes.shape({
             pathName: propTypes.string,
             search: propTypes.string,
@@ -1524,16 +1543,32 @@ var ReactRouterEnzymeContext = function () {
             state: propTypes.any,
             key: propTypes.string
           }),
+          index: propTypes.number,
+          entries: propTypes.arrayOf(propTypes.shape({
+            pathName: propTypes.string,
+            search: propTypes.string,
+            hash: propTypes.hash,
+            state: propTypes.any,
+            key: propTypes.string
+          })),
           push: propTypes.func,
           replace: propTypes.func,
           go: propTypes.func,
           goBack: propTypes.func,
           goForward: propTypes.func,
           canGo: propTypes.func,
-          block: propTypes.func
+          block: propTypes.func,
+          listen: propTypes.func
         })
       })
     };
+
+    this.history = this.context.router.history;
+
+    this.get = this.get.bind(this);
+    this.getChildContextTypes = this.getChildContextTypes.bind(this);
+    this.getContext = this.getContext.bind(this);
+    this.props = this.props.bind(this);
   }
 
   _createClass(ReactRouterEnzymeContext, [{
